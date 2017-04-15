@@ -1,0 +1,55 @@
+<VoiceDictionary version="0.1">
+    <Syllables>
+        <Syllable alias="ね">
+            <Phonemes>n-e-e</Phonemes>
+        </Syllable>
+        <Syllable alias="こ">
+            <Phonemes>k-o-o</Phonemes>
+        </Syllable>
+    </Syllables>
+    <Fragments>
+        <Fragment phonemes="^/k-o" pitch="F4">
+            <FileName>こ.wav</FileName>
+            <StartTime>227</StartTime>
+            <Length>700</Length>
+            <FixedRange>
+                <Length>372</Length>
+                <Overlap>0</Overlap>
+                <Preceding>21</Preceding>
+            </FixedRange>
+        </Fragment>
+        <Fragment phonemes="-o/n-e" pitch="F4">
+            <FileName>_おねぬにな.wav</FileName>
+            <StartTime>1097</StartTime>
+            <Length>608</Length>
+            <FixedRange>
+                <Length>450</Length>
+                <Overlap>100</Overlap>
+                <Preceding>300</Preceding>
+            </FixedRange>
+        </Fragment>
+        <Fragment phonemes="-e/k-o" pitch="F4">
+            <FileName>_あきくけこ.wav</FileName>
+            <StartTime>2879.74</StartTime>
+            <Length>600</Length>
+            <FixedRange>
+                <Length>450</Length>
+                <Overlap>100</Overlap>
+                <Preceding>300</Preceding>
+            </FixedRange>
+        </Fragment>
+        <Fragment phonemes="-o/$" pitch="F4">
+            <FileName>_あきくけこ.wav</FileName>
+            <StartTime>3898.74</StartTime>
+            <Length>590</Length>
+            <FixedRange>
+                <Length>450</Length>
+                <Overlap>100</Overlap>
+                <Preceding>300</Preceding>
+            </FixedRange>
+        </Fragment>
+    </Fragments>
+</VoiceDictionary>
+
+
+
