@@ -7,6 +7,11 @@ Please refer to the following link.
 
 https://docs.google.com/presentation/d/1HAH6JeMjsuwnseuR6lNgsRyj88V34bX-xhRXdW_RcQE/edit?usp=sharing
 
+## Usage
+Documents are being prepared.
+
+Please refer to the [examples](https://github.com/miyabishi/waltz_vocal_agent/tree/master/example).
+
 ## Contact
 - twitter: miyabishi_1syk
 - mail: miyabishi1syk@gmail.com
