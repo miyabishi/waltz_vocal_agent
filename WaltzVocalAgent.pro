@@ -80,7 +80,6 @@ HEADERS +=\
     src/samephonemefragmentsets.h \
     src/waltzvocalagent.h \
     src/waltzvocalagent_global.h \
-    src/waveformdata.h \
     include/fragmentdata.h \
     include/fragmentlist.h \
     include/ialias.h \
@@ -88,7 +87,6 @@ HEADERS +=\
     include/length.h \
     include/samephonemefragmentsets.h \
     include/waltzvocalagent.h \
-    include/waveformdata.h
 
 unix {
     target.path = /usr/lib
