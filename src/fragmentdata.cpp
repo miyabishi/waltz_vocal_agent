@@ -53,9 +53,11 @@ Length FragmentData::length() const
     if (mWaveform_ == 0)
     {
         qWarning("Waveform is null.");
-        return Length(MilliSeconds(0), 0);
+        return Length(MilliSeconds(0), 0, 0);
     }
-    return Length(mFragment_->length(), mWaveform_->sampleRate());
+    return Length(mFragment_->length(),
+                  mWaveform_->sampleRate(),
+                  mWaveform_->sampleSize());
 }
 
 Length FragmentData::lengthOfFixedRange() const
@@ -63,9 +65,11 @@ Length FragmentData::lengthOfFixedRange() const
     if (mWaveform_ == 0)
     {
         qWarning("Waveform is null.");
-        return Length(MilliSeconds(0), 0);
+        return Length(MilliSeconds(0), 0, 0);
     }
-    return Length(mFragment_->fixedRange().length(), mWaveform_->sampleRate());
+    return Length(mFragment_->fixedRange().length(),
+                  mWaveform_->sampleRate(),
+                  mWaveform_->sampleSize());
 }
 
 Length FragmentData::overlap() const
@@ -73,9 +77,11 @@ Length FragmentData::overlap() const
     if (mWaveform_ == 0)
     {
         qWarning("Waveform is null.");
-        return Length(MilliSeconds(0), 0);
+        return Length(MilliSeconds(0), 0, 0);
     }
-    return Length(mFragment_->fixedRange().overlap(), mWaveform_->sampleRate());
+    return Length(mFragment_->fixedRange().overlap(),
+                  mWaveform_->sampleRate(),
+                  mWaveform_->sampleSize());
 }
 
 Length FragmentData::preceding() const
@@ -83,9 +89,11 @@ Length FragmentData::preceding() const
     if (mWaveform_ == 0)
     {
         qWarning("Waveform is null.");
-        return Length(MilliSeconds(0), 0);
+        return Length(MilliSeconds(0), 0, 0);
     }
-    return Length(mFragment_->fixedRange().preceding(), mWaveform_->sampleRate());
+    return Length(mFragment_->fixedRange().preceding(),
+                  mWaveform_->sampleRate(),
+                  mWaveform_->sampleSize());
 }
 
 int FragmentData::sampleRate() const
@@ -117,6 +125,3 @@ int FragmentData::waveformRawDataSize() const
 {
     return mWaveform_->rawData().size();
 }
-
-
-
