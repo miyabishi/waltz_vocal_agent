@@ -10,7 +10,9 @@ SoundPlayer::SoundPlayer(QObject* aParent)
     , mAudioBuffer_()
 {
 }
-void SoundPlayer::play( const waltz::agent::FragmentData& aFragmentData)
+void SoundPlayer::play(const QByteArray& aSoundData,
+                       const int aSampleRate,
+                       const int aSampleSize)
 {
     if (! mAudioOutput_.isNull())
     {
@@ -19,14 +21,14 @@ void SoundPlayer::play( const waltz::agent::FragmentData& aFragmentData)
         loop.exec();
 
     }
-    mAudioByteArray_ = QByteArray(aFragmentData.waveformRawData(), aFragmentData.waveformRawDataSize());
+    mAudioByteArray_ = aSoundData;
     mAudioBuffer_.setData(mAudioByteArray_);
     mAudioBuffer_.open(QIODevice::ReadOnly);
 
     QAudioFormat format;
-    format.setSampleRate(aFragmentData.sampleRate());
+    format.setSampleRate(aSampleRate);
     format.setChannelCount(1);
-    format.setSampleSize(aFragmentData.sampleSize());
+    format.setSampleSize(aSampleSize);
     format.setCodec("audio/pcm");
     format.setByteOrder(QAudioFormat::LittleEndian);
     format.setSampleType(QAudioFormat::SignedInt);

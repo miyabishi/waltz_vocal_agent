@@ -64,13 +64,21 @@ int main(int argc, char *argv[])
 
     qDebug() << agent.phraseToPhonemesSentence(&phrase);
     SoundPlayer player(&a);
+    QByteArray soundData;
+    int sampleRate = 0;
+    int sampleSize = 0;
+
     for(int i = 0; i < fragmentList.length(); i++)
     {
-        SamePhonemeFragmentSets samePhonemeFragmentSets = fragmentList.at(i);
-        displayFragmentDataSpec(samePhonemeFragmentSets.at(0));
-        player.play(samePhonemeFragmentSets.at(0));
-        delay();
+        FragmentData fragmentData = fragmentList.at(i).at(0);
+
+        displayFragmentDataSpec(fragmentData);
+        soundData += QByteArray(fragmentData.waveformRawData(),
+                                fragmentData.waveformRawDataSize());
+        sampleRate = fragmentData.sampleRate();
+        sampleSize = fragmentData.sampleSize();
     }
+    player.play(soundData, sampleRate, sampleSize);
 
     return a.exec();
 }

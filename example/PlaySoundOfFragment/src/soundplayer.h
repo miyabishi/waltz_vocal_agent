@@ -16,7 +16,9 @@ namespace waltz
             Q_OBJECT
         public:
             SoundPlayer(QObject* aParent);
-            void play(const waltz::agent::FragmentData& aFragmentData);
+            void play(const QByteArray& aSoundData,
+                      const int sampleRate,
+                      const int sampleSize);
         private slots:
             void stateChangedHandler(QAudio::State);
         private:
