@@ -27,12 +27,12 @@ double MilliSeconds::toSeconds() const
     return mValue_ / 1000.0;
 }
 
-int MilliSeconds::toFrames(int aSampleRate) const
+int MilliSeconds::toArrayLength(int aSampleRate) const
 {
     return toSeconds() * aSampleRate;
 }
 
 int MilliSeconds::toBitPosition(int aSampleRate, int aSampleSize) const
 {
-    return toFrames(aSampleRate) * aSampleSize / 8;
+    return toArrayLength(aSampleRate) * aSampleSize / 8;
 }

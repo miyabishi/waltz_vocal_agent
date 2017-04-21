@@ -27,19 +27,19 @@ void delay()
 void displayFragmentDataSpec(const FragmentData& aFragmentData)
 {
     qDebug() << "---";
-    qDebug() << "Sample rate:"               << aFragmentData.sampleRate();
-    qDebug() << "Sample size:"               << aFragmentData.sampleSize();
-    qDebug() << "Phonemes:"                  << aFragmentData.phonemes().c_str();
-    qDebug() << "Length(msec):"              << aFragmentData.length().asMilliSeconds();
-    qDebug() << "Length(frames):"            << aFragmentData.length().asFrames();
-    qDebug() << "FixedRange Length(msec):"   << aFragmentData.lengthOfFixedRange().asMilliSeconds();
-    qDebug() << "FixedRange Length(frames):" << aFragmentData.lengthOfFixedRange().asFrames();
-    qDebug() << "Overlap(msec):"             << aFragmentData.overlap().asMilliSeconds();
-    qDebug() << "Overlap(frames):"           << aFragmentData.overlap().asFrames();
-    qDebug() << "Preceding(msec):"           << aFragmentData.preceding().asMilliSeconds();
-    qDebug() << "Preceding(frames):"         << aFragmentData.preceding().asFrames();
-    qDebug() << "waveform size:"             << aFragmentData.waveform().size();
-    qDebug() << "waveform rawdata size"      << aFragmentData.waveformRawDataSize();
+    qDebug() << "Sample rate:"                     << aFragmentData.sampleRate();
+    qDebug() << "Sample size:"                     << aFragmentData.sampleSize();
+    qDebug() << "Phonemes:"                        << aFragmentData.phonemes().c_str();
+    qDebug() << "Length(msec):"                    << aFragmentData.length().asMilliSeconds();
+    qDebug() << "Length(array length):"            << aFragmentData.length().asArrayLength();
+    qDebug() << "FixedRange Length(msec):"         << aFragmentData.lengthOfFixedRange().asMilliSeconds();
+    qDebug() << "FixedRange Length(array length):" << aFragmentData.lengthOfFixedRange().asArrayLength();
+    qDebug() << "Overlap(msec):"                   << aFragmentData.overlap().asMilliSeconds();
+    qDebug() << "Overlap(frames):"                 << aFragmentData.overlap().asArrayLength();
+    qDebug() << "Preceding(msec):"                 << aFragmentData.preceding().asMilliSeconds();
+    qDebug() << "Preceding(array length):"         << aFragmentData.preceding().asArrayLength();
+    qDebug() << "waveform size:"                   << aFragmentData.waveform().size();
+    qDebug() << "waveform rawdata size"            << aFragmentData.waveformRawDataSize();
 }
 
 int main(int argc, char *argv[])

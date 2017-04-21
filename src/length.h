@@ -23,7 +23,7 @@ namespace waltz
 
         public:
             double asMilliSeconds() const;
-            int asFrames() const;
+            int asArrayLength() const;
             int asBytePosition() const;
 
         private:

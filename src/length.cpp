@@ -33,9 +33,9 @@ double Length::asMilliSeconds() const
     return mMilliSeconds_->value();
 }
 
-int Length::asFrames() const
+int Length::asArrayLength() const
 {
-    return mMilliSeconds_->toFrames(mSampleRate_);
+    return mMilliSeconds_->toArrayLength(mSampleRate_);
 }
 
 int Length::asBytePosition() const

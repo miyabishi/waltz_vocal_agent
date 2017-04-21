@@ -17,7 +17,7 @@ namespace waltz
             public:
                 double value() const;
                 double toSeconds() const;
-                int    toFrames(int aSampleRate) const;
+                int    toArrayLength(int aSampleRate) const;
                 int    toBitPosition(int aSampleRate, int aSampleSize) const;
             private:
                 double mValue_;
