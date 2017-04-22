@@ -140,9 +140,7 @@ Fragment VoiceDictionaryParser::parseFragment(const QDomElement& aFragmentElemen
         node = node.nextSibling();
     }
     return Fragment(phonemes,
-                    WavFilePath(QDir::cleanPath(aVoiceDictionaryDirPath
-                                                + QDir::separator()
-                                                + fileName)),
+                    WavFilePath(joinPath(aVoiceDictionaryDirPath, fileName)),
                     MilliSeconds(startTime),
                     MilliSeconds(length),
                     fixedRange);
@@ -209,15 +207,6 @@ Syllable VoiceDictionaryParser::parseSyllable(const QDomElement& aSyllableElemen
     return Syllable(alias, Phonemes(phonemesString));
 }
 
-QString VoiceDictionaryParser::getTextFromNode(const QDomNode& aNode)
-{
-    QDomNode node = aNode.firstChild();
-    if(node.nodeType() != QDomNode::TextNode)
-    {
-        return QString();
-    }
-    return node.toText().data();
-}
 
 VoiceDictionaryParser::VoiceDictionaryParser()
 {

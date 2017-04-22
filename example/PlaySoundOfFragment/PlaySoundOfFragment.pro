@@ -32,7 +32,9 @@ HEADERS += \
     src/soundplayer.h
 
 DISTFILES += \
-    sample_vocal/voice_dictionary.xml
+    sample_vocal/voice_dictionary.xml \
+    sample_vocal/sample_vocal.wvocal
+
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../release/ -lWaltzVocalAgent
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../debug/ -lWaltzVocalAgent

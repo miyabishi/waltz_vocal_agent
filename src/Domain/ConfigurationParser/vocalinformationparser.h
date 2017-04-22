@@ -1,6 +1,10 @@
+#include <QString>
+
 #ifndef VOCALINFORMATIONPARSER_H
 #define VOCALINFORMATIONPARSER_H
 
+#include "parser.h"
+#include "src/Domain/VocalInformationComponent/vocalinformation.h"
 
 namespace waltz
 {
@@ -8,10 +12,12 @@ namespace waltz
     {
         namespace ConfigurationParser
         {
-            // TODO:
-            class VocalInformationParser
+            class VocalInformationParser : public Parser
             {
             public:
+                static waltz::agent::VocalInformationComponent::VocalInformation parse(const QString& aFileName);
+
+            private:
                 VocalInformationParser();
             };
         }

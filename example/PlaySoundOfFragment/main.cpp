@@ -3,6 +3,7 @@
 #include <QDebug>
 
 #include <stdio.h>
+#include <iostream>
 #include <fragmentlist.h>
 #include <samephonemefragmentsets.h>
 #include <fragmentdata.h>
@@ -46,7 +47,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     waltz::agent::WaltzVocalAgent agent;
-    agent.loadDictionary(".\\sample_vocal\\voice_dictionary.xml");
+    agent.loadVocal(".\\sample_vocal\\sample_vocal.wvocal");
     Phrase phrase;
 
     std::vector<std::string> aliases = {
@@ -62,7 +63,10 @@ int main(int argc, char *argv[])
 
     FragmentList fragmentList = agent.phraseToFragmentList(&phrase);
 
-    qDebug() << agent.phraseToPhonemesSentence(&phrase);
+    qDebug() << "description:" << QString::fromStdString(agent.getCharacterDescription());
+    qDebug() << "image file:" <<  QString::fromStdString(agent.getCharacterImageFilePath());
+    qDebug() << "phonemes" << QString::fromStdString(agent.phraseToPhonemesSentence(&phrase));
+
     SoundPlayer player(&a);
     QByteArray soundData;
     int sampleRate = 0;

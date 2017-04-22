@@ -51,7 +51,11 @@ SOURCES += src/waltzvocalagent.cpp \
     src/Domain/DictionaryComponent/joinedphonemessentence.cpp \
     src/Domain/DictionaryComponent/wavfilepath.cpp \
     src/Domain/DictionaryComponent/milliseconds.cpp \
-    src/length.cpp
+    src/length.cpp \
+    src/Domain/VocalInformationComponent/dictionaryfilepath.cpp \
+    src/Domain/VocalInformationComponent/characterdescription.cpp \
+    src/Domain/VocalInformationComponent/characterimagefilepath.cpp \
+    src/Domain/ConfigurationParser/parser.cpp
 
 HEADERS +=\
         src/Domain/ConfigurationParser/vocalinformationparser.h \
@@ -87,6 +91,10 @@ HEADERS +=\
     include/length.h \
     include/samephonemefragmentsets.h \
     include/waltzvocalagent.h \
+    src/Domain/VocalInformationComponent/dictionaryfilepath.h \
+    src/Domain/VocalInformationComponent/characterdescription.h \
+    src/Domain/VocalInformationComponent/characterimagefilepath.h \
+    src/Domain/ConfigurationParser/parser.h
 
 unix {
     target.path = /usr/lib

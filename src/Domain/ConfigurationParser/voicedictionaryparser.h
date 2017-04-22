@@ -2,6 +2,7 @@
 #define VOICEDICTIONARYPARSER_H
 
 #include <QDomElement>
+#include "parser.h"
 #include "src/Domain/DictionaryComponent/voicedictionary.h"
 #include "src/Domain/DictionaryComponent/syllables.h"
 #include "src/Domain/DictionaryComponent/syllable.h"
@@ -15,7 +16,7 @@ namespace waltz
     {
         namespace ConfigurationParser
         {
-            class VoiceDictionaryParser
+            class VoiceDictionaryParser : public Parser
             {
             public:
                 static waltz::agent::DictionaryComponent::VoiceDictionary parse(const QString& aFileName);
@@ -28,7 +29,6 @@ namespace waltz
                 static waltz::agent::DictionaryComponent::Fragment parseFragment(const QDomElement& aFragmentElement,
                                                                                  const QString& aVoiceDictionaryDirPath);
                 static waltz::agent::DictionaryComponent::FixedRange parseFixedRange(const QDomElement& aFixedRangeElement);
-                static QString getTextFromNode(const QDomNode& aNode);
 
             private:
                 VoiceDictionaryParser();
