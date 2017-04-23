@@ -8,16 +8,18 @@
 #include "src/Domain/VocalInformationComponent/characterdescription.h"
 #include "src/Domain/VocalInformationComponent/characterimagefilepath.h"
 #include "src/Domain/VocalInformationComponent/dictionaryfilepath.h"
+#include "src/Domain/VocalInformationComponent/voicelibraryname.h"
 
 using namespace waltz::agent::ConfigurationParser;
 using namespace waltz::agent::VocalInformationComponent;
 
 namespace
 {
-    const QString TAG_VOCAL_INFORMATION = "VocalInformation";
-    const QString TAG_DESCRIPTION       = "Description";
-    const QString TAG_IMAGE_FILE        = "ImageFile";
-    const QString TAG_DICTIONARY_FILE   = "DictionaryFile";
+    const QString TAG_VOCAL_INFORMATION  = "VocalInformation";
+    const QString TAG_VOICE_LIBRARY_NAME = "VoiceLibraryName";
+    const QString TAG_DESCRIPTION        = "Description";
+    const QString TAG_IMAGE_FILE         = "ImageFile";
+    const QString TAG_DICTIONARY_FILE    = "DictionaryFile";
 }
 
 VocalInformation VocalInformationParser::parse(const QString &aFileName)
@@ -69,6 +71,7 @@ VocalInformation VocalInformationParser::parse(const QString &aFileName)
     QString imageFilePath = "";
     QString dictionaryFilePath = "";
     QString description = "";
+    QString voiceLibraryName = "";
 
     while (!node.isNull())
     {
@@ -84,10 +87,15 @@ VocalInformation VocalInformationParser::parse(const QString &aFileName)
         {
             description = getTextFromNode(node);
         }
+        else if (node.toElement().tagName() == TAG_VOICE_LIBRARY_NAME)
+        {
+            voiceLibraryName = getTextFromNode(node);
+        }
 
         node = node.nextSibling();
     }
-    return VocalInformation(DictionaryFilePath(dictionaryFilePath),
+    return VocalInformation(VoiceLibraryName(voiceLibraryName),
+                            DictionaryFilePath(dictionaryFilePath),
                             CharacterImageFilePath(imageFilePath),
                             CharacterDescription(description));
 }

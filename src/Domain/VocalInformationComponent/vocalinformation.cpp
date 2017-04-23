@@ -4,23 +4,27 @@
 using namespace waltz::agent::VocalInformationComponent;
 
 VocalInformation::VocalInformation()
-    : mDictionaryFilePath_("")
+    : mVoiceLibraryName_("")
+    , mDictionaryFilePath_("")
     , mImageFilePath_("")
     , mDescription_("")
 {
 }
 
-VocalInformation::VocalInformation(DictionaryFilePath aDictionaryFilePath,
-                                    CharacterImageFilePath aImageFilePath,
-                                    CharacterDescription aDescription)
-     : mDictionaryFilePath_(aDictionaryFilePath)
+VocalInformation::VocalInformation(VoiceLibraryName aVoiceLibraryName,
+                                   DictionaryFilePath aDictionaryFilePath,
+                                   CharacterImageFilePath aImageFilePath,
+                                   CharacterDescription aDescription)
+     : mVoiceLibraryName_(aVoiceLibraryName)
+     , mDictionaryFilePath_(aDictionaryFilePath)
      , mImageFilePath_(aImageFilePath)
      , mDescription_(aDescription)
 {
 }
 
 VocalInformation::VocalInformation(const VocalInformation& aOther)
-    : mDictionaryFilePath_(aOther.mDictionaryFilePath_)
+    : mVoiceLibraryName_(aOther.mVoiceLibraryName_)
+    , mDictionaryFilePath_(aOther.mDictionaryFilePath_)
     , mImageFilePath_(aOther.mImageFilePath_)
     , mDescription_(aOther.mDescription_)
 {
@@ -44,6 +48,7 @@ CharacterImageFilePath VocalInformation::characterImageFilePath() const
 
 VocalInformation& VocalInformation::operator=(const VocalInformation& aOther)
 {
+    mVoiceLibraryName_ = aOther.mVoiceLibraryName_;
     mDictionaryFilePath_ = aOther.mDictionaryFilePath_;
     mImageFilePath_ = aOther.mImageFilePath_;
     mDescription_ = aOther.mDescription_;

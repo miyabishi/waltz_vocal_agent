@@ -4,6 +4,7 @@
 #include "characterdescription.h"
 #include "characterimagefilepath.h"
 #include "dictionaryfilepath.h"
+#include "voicelibraryname.h"
 
 namespace waltz
 {
@@ -15,7 +16,8 @@ namespace waltz
             {
             public:
                 VocalInformation();
-                VocalInformation(DictionaryFilePath aDictionaryFilePath,
+                VocalInformation(VoiceLibraryName aVoiceLibraryName,
+                                 DictionaryFilePath aDictionaryFilePath,
                                  CharacterImageFilePath aImageFilePath,
                                  CharacterDescription aDescription);
                 VocalInformation(const VocalInformation& aOther);
@@ -27,6 +29,7 @@ namespace waltz
                 CharacterImageFilePath characterImageFilePath() const;
 
             private:
+                VoiceLibraryName       mVoiceLibraryName_;
                 DictionaryFilePath     mDictionaryFilePath_;
                 CharacterImageFilePath mImageFilePath_;
                 CharacterDescription   mDescription_;
