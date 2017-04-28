@@ -54,7 +54,7 @@ waltz::agent::SamePhonemeFragmentSets Fragments::assembleSamePhonemeFragmentSets
     aPhonemesSize = 0;
     waltz::agent::SamePhonemeFragmentSets samePhonemeFragmentSets;
 
-    foreach(Fragment fragment, mFragments_)
+    foreach(const Fragment& fragment, mFragments_)
     {
         if(! fragment.matchPhonemsAtHead(aJoinedPhonemesSentence))
         {

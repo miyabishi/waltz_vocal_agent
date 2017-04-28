@@ -25,7 +25,7 @@ void Syllables::append(const Syllable &aSyllable)
 
 Syllable Syllables::find(const Alias& aAlias) const
 {
-    foreach (Syllable syllabe, mSylables_) {
+    foreach (const Syllable& syllabe, mSylables_) {
         if (syllabe.aliasEquals(aAlias))
         {
             return syllabe;

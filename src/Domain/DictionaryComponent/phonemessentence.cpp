@@ -33,7 +33,7 @@ void PhonemesSentence::append(Phonemes aPhonemes)
 JoinedPhonemesSentence PhonemesSentence::join() const
 {
     QString joinedString = PHONEMES_START_POINT + PHONEMES_SEPARATOR;
-    foreach(Phonemes phonemes, mPhonemesSentence_)
+    foreach(const Phonemes& phonemes, mPhonemesSentence_)
     {
         joinedString += phonemes.value() + PHONEMES_SEPARATOR;
     }
