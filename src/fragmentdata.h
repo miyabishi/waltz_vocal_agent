@@ -40,6 +40,7 @@ namespace waltz
             Length preceding() const;
             int sampleRate() const;
             int sampleSize() const;
+            std::string comment() const;
 
         private:
             std::shared_ptr<DictionaryComponent::Fragment> mFragment_;

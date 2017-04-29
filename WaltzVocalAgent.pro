@@ -56,7 +56,8 @@ SOURCES += src/waltzvocalagent.cpp \
     src/Domain/VocalInformationComponent/characterdescription.cpp \
     src/Domain/VocalInformationComponent/characterimagefilepath.cpp \
     src/Domain/ConfigurationParser/parser.cpp \
-    src/Domain/VocalInformationComponent/voicelibraryname.cpp
+    src/Domain/VocalInformationComponent/voicelibraryname.cpp \
+    src/Domain/DictionaryComponent/comment.cpp
 
 HEADERS +=\
         src/Domain/ConfigurationParser/vocalinformationparser.h \
@@ -96,7 +97,8 @@ HEADERS +=\
     src/Domain/VocalInformationComponent/characterdescription.h \
     src/Domain/VocalInformationComponent/characterimagefilepath.h \
     src/Domain/ConfigurationParser/parser.h \
-    src/Domain/VocalInformationComponent/voicelibraryname.h
+    src/Domain/VocalInformationComponent/voicelibraryname.h \
+    src/Domain/DictionaryComponent/comment.h
 
 unix {
     target.path = /usr/lib

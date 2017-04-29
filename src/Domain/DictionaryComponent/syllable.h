@@ -25,6 +25,7 @@ namespace waltz
             private:
                 Alias    mAlias_;
                 Phonemes mPhonemes_;
+
             };
         } // namespace DictionaryComponent
     } // namespace agent

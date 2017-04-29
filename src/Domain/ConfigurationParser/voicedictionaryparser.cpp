@@ -6,6 +6,7 @@
 #include <QDomElement>
 #include <QDomNode>
 #include "voicedictionaryparser.h"
+#include "src/Domain/DictionaryComponent/comment.h"
 #include "src/Domain/DictionaryComponent/wavfilepath.h"
 
 using namespace waltz::agent::ConfigurationParser;
@@ -20,6 +21,7 @@ namespace
     const QString TAG_START_TIME       = "StartTime";
     const QString TAG_LENGTH           = "Length";
     const QString TAG_FILENAME         = "FileName";
+    const QString TAG_COMMENT          = "Comment";
     const QString TAG_FIXED_RANGE      = "FixedRange";
     const QString TAG_VOICE_DICTIONARY = "VoiceDictionary";
     const QString TAG_STLLABLE         = "Syllable";
@@ -116,6 +118,7 @@ Fragment VoiceDictionaryParser::parseFragment(const QDomElement& aFragmentElemen
     double     startTime = 0;
     double     length = 0;
     FixedRange fixedRange;
+    QString    comment = "";
 
     QDomNode node = aFragmentElement.firstChild();
 
@@ -137,13 +140,19 @@ Fragment VoiceDictionaryParser::parseFragment(const QDomElement& aFragmentElemen
         {
             fixedRange = parseFixedRange(node.toElement());
         }
+        else if (node.toElement().tagName() == TAG_COMMENT)
+        {
+            comment = getTextFromNode(node);
+        }
+
         node = node.nextSibling();
     }
     return Fragment(phonemes,
                     WavFilePath(joinPath(aVoiceDictionaryDirPath, fileName)),
                     MilliSeconds(startTime),
                     MilliSeconds(length),
-                    fixedRange);
+                    fixedRange,
+                    Comment(comment));
 }
 
 FixedRange VoiceDictionaryParser::parseFixedRange(const QDomElement &aFixedRangeElement)
@@ -202,9 +211,11 @@ Syllable VoiceDictionaryParser::parseSyllable(const QDomElement& aSyllableElemen
         {
             phonemesString = getTextFromNode(node);
         }
+
         node = node.nextSibling();
     }
-    return Syllable(alias, Phonemes(phonemesString));
+    return Syllable(alias,
+                    Phonemes(phonemesString));
 }
 
 

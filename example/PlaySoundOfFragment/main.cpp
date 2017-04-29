@@ -31,6 +31,7 @@ void displayFragmentDataSpec(const FragmentData& aFragmentData)
     qDebug() << "Sample rate:"                     << aFragmentData.sampleRate();
     qDebug() << "Sample size:"                     << aFragmentData.sampleSize();
     qDebug() << "Phonemes:"                        << aFragmentData.phonemes().c_str();
+    qDebug() << "Comment:"                         << aFragmentData.comment().c_str();
     qDebug() << "Length(msec):"                    << aFragmentData.length().asMilliSeconds();
     qDebug() << "Length(array length):"            << aFragmentData.length().asArrayLength();
     qDebug() << "FixedRange Length(msec):"         << aFragmentData.lengthOfFixedRange().asMilliSeconds();

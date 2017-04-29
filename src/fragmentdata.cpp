@@ -125,3 +125,8 @@ int FragmentData::waveformRawDataSize() const
 {
     return mWaveform_->rawData().size();
 }
+
+std::string FragmentData::comment() const
+{
+    return mFragment_->comment().value().toStdString();
+}

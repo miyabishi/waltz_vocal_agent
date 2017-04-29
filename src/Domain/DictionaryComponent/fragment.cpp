@@ -11,6 +11,7 @@ Fragment::Fragment()
     , mStartTime_(0)
     , mLength_(0.0)
     , mFixedRange_(FixedRange())
+    , mComment_("")
 {
 
 }
@@ -19,12 +20,14 @@ Fragment::Fragment(const Phonemes& aPhonemes,
                    const WavFilePath& aWavFilePath,
                    MilliSeconds aStartTime,
                    MilliSeconds aLength,
-                   const FixedRange& aFixedRange)
+                   const FixedRange& aFixedRange,
+                   const Comment& aComment)
     : mPhonemes_(aPhonemes)
     , mWavFilePath_(aWavFilePath)
     , mStartTime_(aStartTime)
     , mLength_(aLength)
     , mFixedRange_(aFixedRange)
+    , mComment_(aComment)
 {
 }
 
@@ -34,6 +37,7 @@ Fragment::Fragment(const Fragment& aOther)
     , mStartTime_(aOther.mStartTime_)
     , mLength_(aOther.mLength_)
     , mFixedRange_(aOther.mFixedRange_)
+    , mComment_(aOther.mComment_)
 {
 }
 
@@ -44,6 +48,8 @@ Fragment& Fragment::operator=(const Fragment& aOther)
     mStartTime_   = aOther.mStartTime_;
     mLength_      = aOther.mLength_;
     mFixedRange_  = aOther.mFixedRange_;
+    mComment_     = aOther.mComment_;
+
     return (*this);
 }
 
@@ -74,3 +80,7 @@ MilliSeconds Fragment::length() const
     return mLength_;
 }
 
+Comment Fragment::comment() const
+{
+    return mComment_;
+}

@@ -29,6 +29,7 @@
             </FixedRange>
         </Fragment>
         <Fragment phonemes="-e/k-o" pitch="F4">
+            <Comment>this is comment.</Comment>
             <FileName>_あきくけこ.wav</FileName>
             <StartTime>2879.74</StartTime>
             <Length>600</Length>
