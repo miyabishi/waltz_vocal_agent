@@ -24,3 +24,8 @@ bool Alias::operator==(const Alias& aOther) const
 {
     return mValue_ == aOther.mValue_;
 }
+
+bool Alias::operator!=(const Alias& aOther) const
+{
+    return mValue_ != aOther.mValue_;
+}
