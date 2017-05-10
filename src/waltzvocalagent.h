@@ -27,12 +27,14 @@ namespace waltz
             FragmentList phraseToFragmentList(const IPhrase* aPhrase);
             std::string phraseToPhonemesSentence(const IPhrase* aPhrase) const;
 
-            std::string getCharacterDescription() const;
-            std::string getCharacterImageFilePath() const;
+            std::string characterDescription() const;
+            std::string characterImageFilePath() const;
+            bool        isLibraryLoaded() const;
 
         private:
             std::shared_ptr<DictionaryComponent::VoiceDictionary>        mVoiceDictionary_;
             std::shared_ptr<VocalInformationComponent::VocalInformation> mVocalInformation_;
+            bool                                                         mIsLibraryLoaded_;
 
         private:
             WaltzVocalAgent(const WaltzVocalAgent& aOther);

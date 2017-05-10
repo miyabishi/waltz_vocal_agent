@@ -13,17 +13,9 @@
 #include "src/soundplayer.h"
 #include "waltzvocalagent.h"
 
-#include <QTime>
-
 using namespace waltz::example;
 using namespace waltz::agent;
 
-void delay()
-{
-    QTime dieTime= QTime::currentTime().addSecs(5);
-    while (QTime::currentTime() < dieTime)
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-}
 
 void displayFragmentDataSpec(const FragmentData& aFragmentData)
 {
@@ -64,8 +56,8 @@ int main(int argc, char *argv[])
 
     FragmentList fragmentList = agent.phraseToFragmentList(&phrase);
 
-    qDebug() << "description:" << QString::fromStdString(agent.getCharacterDescription());
-    qDebug() << "image file:" <<  QString::fromStdString(agent.getCharacterImageFilePath());
+    qDebug() << "description:" << QString::fromStdString(agent.characterDescription());
+    qDebug() << "image file:" <<  QString::fromStdString(agent.characterImageFilePath());
     qDebug() << "phonemes" << QString::fromStdString(agent.phraseToPhonemesSentence(&phrase));
 
     SoundPlayer player(&a);
