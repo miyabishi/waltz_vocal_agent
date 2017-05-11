@@ -7,24 +7,12 @@ using namespace waltz::example;
 SoundPlayer::SoundPlayer(QObject* aParent)
     : QObject(aParent)
     , mAudioOutput_(0)
-    , mAudioBuffer_()
 {
 }
-void SoundPlayer::play(const QByteArray& aSoundData,
-                       const int aSampleRate,
-                       const int aSampleSize)
+void SoundPlayer::start(QIODevice* aIODevice,
+                        const int aSampleRate,
+                        const int aSampleSize)
 {
-    if (! mAudioOutput_.isNull())
-    {
-        QEventLoop loop;
-        connect(mAudioOutput_, SIGNAL(destroyed(QObject*)), &loop, SLOT(quit()));
-        loop.exec();
-
-    }
-    mAudioByteArray_ = aSoundData;
-    mAudioBuffer_.setData(mAudioByteArray_);
-    mAudioBuffer_.open(QIODevice::ReadOnly);
-
     QAudioFormat format;
     format.setSampleRate(aSampleRate);
     format.setChannelCount(1);
@@ -42,29 +30,22 @@ void SoundPlayer::play(const QByteArray& aSoundData,
     mAudioOutput_ = new QAudioOutput(format, this);
     mAudioOutput_->stop();
     connect(mAudioOutput_, SIGNAL(stateChanged(QAudio::State)), this, SLOT(stateChangedHandler(QAudio::State)));
-    mAudioOutput_->start(&mAudioBuffer_);
+    mAudioOutput_->start(aIODevice);
 }
 
 void SoundPlayer::stateChangedHandler(QAudio::State aNewState)
 {
-    switch (aNewState) {
-    case QAudio::IdleState:
-        mAudioOutput_->stop();
-        mAudioOutput_->reset();
-        mAudioBuffer_.close();
-        delete mAudioOutput_;
-        break;
-
-    case QAudio::StoppedState:
-        if (mAudioOutput_->error() != QAudio::NoError) {
-            qWarning("audio output error");
-            mAudioOutput_->stop();
-            mAudioBuffer_.close();
-            delete mAudioOutput_;
-        }
-        break;
-    default:
-        break;
+    qDebug() << Q_FUNC_INFO << aNewState;
+    if (aNewState != QAudio::StoppedState)
+    {
+        return;
     }
+
+    if (mAudioOutput_->error() == QAudio::NoError) {
+        return;
+    }
+
+    qWarning("audio output error");
+    mAudioOutput_->stop();
 }
 

@@ -1,6 +1,8 @@
 #include <vector>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QDataStream>
+#include <QThread>
 
 #include <stdio.h>
 #include <iostream>
@@ -62,8 +64,11 @@ int main(int argc, char *argv[])
 
     SoundPlayer player(&a);
     QByteArray soundData;
-    int sampleRate = 0;
-    int sampleSize = 0;
+    QDataStream dataStream(&soundData, QIODevice::ReadWrite);
+    int sampleRate = fragmentList.at(0).at(0).sampleRate();
+    int sampleSize = fragmentList.at(0).at(0).sampleSize();
+    player.start(dataStream.device(), sampleRate, sampleSize);
+    QThread::sleep(1);
 
     for(int i = 0; i < fragmentList.length(); i++)
     {
@@ -75,7 +80,6 @@ int main(int argc, char *argv[])
         sampleRate = fragmentData.sampleRate();
         sampleSize = fragmentData.sampleSize();
     }
-    player.play(soundData, sampleRate, sampleSize);
 
     return a.exec();
 }

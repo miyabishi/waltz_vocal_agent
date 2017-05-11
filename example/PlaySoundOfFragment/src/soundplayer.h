@@ -16,15 +16,13 @@ namespace waltz
             Q_OBJECT
         public:
             SoundPlayer(QObject* aParent);
-            void play(const QByteArray& aSoundData,
-                      const int sampleRate,
-                      const int sampleSize);
+            void start(QIODevice* aIODevice,
+                       const int sampleRate,
+                       const int sampleSize);
         private slots:
             void stateChangedHandler(QAudio::State);
         private:
             QPointer<QAudioOutput> mAudioOutput_;
-            QBuffer mAudioBuffer_;
-            QByteArray mAudioByteArray_;
         };
 
     } // namespace engine
