@@ -41,10 +41,11 @@ namespace waltz
             int sampleRate() const;
             int sampleSize() const;
             std::string comment() const;
+            std::shared_ptr<double> toDoubleArray() const;
 
         private:
             std::shared_ptr<DictionaryComponent::Fragment> mFragment_;
-            std::shared_ptr<Wave::Waveform> mWaveform_;
+            std::shared_ptr<Wave::Waveform>                mWaveform_;
         };
     } // namespace agent
 } // namespace waltz

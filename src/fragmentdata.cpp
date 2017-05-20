@@ -15,9 +15,8 @@ FragmentData::FragmentData(const Fragment& aFragment)
 }
 
 FragmentData::FragmentData(const FragmentData& aOther)
-    :mFragment_(aOther.mFragment_)
+    : mFragment_(aOther.mFragment_)
     , mWaveform_(aOther.mWaveform_)
-
 {
 }
 
@@ -129,4 +128,25 @@ int FragmentData::waveformRawDataSize() const
 std::string FragmentData::comment() const
 {
     return mFragment_->comment().value().toStdString();
+}
+
+std::shared_ptr<double> FragmentData::toDoubleArray() const
+{
+    std::shared_ptr<double> doubleArrayPtr;
+    int size = sampleSize();
+    QByteArray byteArray(waveformRawData());
+    int arrayLength = byteArray.size()/size;
+    doubleArrayPtr = std::shared_ptr<double>(new double[arrayLength]);
+    double* doubleArray = doubleArrayPtr.get();
+    QByteArray temporaryData(size, 0x0);
+
+
+    for(int index = 0; index < arrayLength; ++index)
+    {
+        temporaryData = byteArray.mid(index * size, size);
+        doubleArray[index] = *reinterpret_cast<double*>(byteArray.data());
+        temporaryData.clear();
+    }
+
+    return doubleArrayPtr;
 }
