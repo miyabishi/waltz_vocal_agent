@@ -144,7 +144,7 @@ std::shared_ptr<double> FragmentData::toDoubleArray() const
     for(int index = 0; index < arrayLength; ++index)
     {
         temporaryData = byteArray.mid(index * size, size);
-        doubleArray[index] = *reinterpret_cast<double*>(byteArray.data());
+        doubleArray[index] = *reinterpret_cast<double*>(temporaryData.data());
         temporaryData.clear();
     }
 
