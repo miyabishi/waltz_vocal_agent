@@ -53,6 +53,11 @@ std::string WaltzVocalAgent::characterImageFilePath() const
     return mVocalInformation_->characterImageFilePath().value().toStdString();
 }
 
+std::string WaltzVocalAgent::libraryName() const
+{
+    return mVocalInformation_->voiceLibraryName().value().toStdString();
+}
+
 bool WaltzVocalAgent::isLibraryLoaded() const
 {
     return mIsLibraryLoaded_;

@@ -27,6 +27,7 @@ namespace waltz
                 DictionaryFilePath dictionaryFilePath() const;
                 CharacterDescription characterDescription() const;
                 CharacterImageFilePath characterImageFilePath() const;
+                VoiceLibraryName voiceLibraryName() const;
 
             private:
                 VoiceLibraryName       mVoiceLibraryName_;

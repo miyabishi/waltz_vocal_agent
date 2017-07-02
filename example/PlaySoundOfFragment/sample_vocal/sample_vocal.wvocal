@@ -1,6 +1,7 @@
 
 <VocalInformation version="0.1">
-  <ImageFile>dummy.png</ImageFile>
+  <LibraryName>Momo Momone</LibraryName>
+  <ImageFile>momo.png</ImageFile>
   <Description>This is sample vocal for waltz vocal agent.</Description>
   <DictionaryFile>voice_dictionary.xml</DictionaryFile>
 </VocalInformation>

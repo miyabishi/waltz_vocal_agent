@@ -17,3 +17,8 @@ VoiceLibraryName& VoiceLibraryName::operator=(const VoiceLibraryName &aOther)
     mValue_= aOther.mValue_;
     return (*this);
 }
+
+QString VoiceLibraryName::value() const
+{
+    return mValue_;
+}

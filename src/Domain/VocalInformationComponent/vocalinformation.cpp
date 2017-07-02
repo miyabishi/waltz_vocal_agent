@@ -55,3 +55,8 @@ VocalInformation& VocalInformation::operator=(const VocalInformation& aOther)
 
     return (*this);
 }
+
+VoiceLibraryName VocalInformation::voiceLibraryName() const
+{
+    return mVoiceLibraryName_;
+}

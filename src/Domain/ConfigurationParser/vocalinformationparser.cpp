@@ -16,7 +16,7 @@ using namespace waltz::agent::VocalInformationComponent;
 namespace
 {
     const QString TAG_VOCAL_INFORMATION  = "VocalInformation";
-    const QString TAG_VOICE_LIBRARY_NAME = "VoiceLibraryName";
+    const QString TAG_VOICE_LIBRARY_NAME = "LibraryName";
     const QString TAG_DESCRIPTION        = "Description";
     const QString TAG_IMAGE_FILE         = "ImageFile";
     const QString TAG_DICTIONARY_FILE    = "DictionaryFile";

@@ -29,6 +29,7 @@ namespace waltz
 
             std::string characterDescription() const;
             std::string characterImageFilePath() const;
+            std::string libraryName() const;
             bool        isLibraryLoaded() const;
 
         private:
