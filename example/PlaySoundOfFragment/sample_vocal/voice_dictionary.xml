@@ -1,5 +1,8 @@
-<VoiceDictionary version="0.1">
+﻿<VoiceDictionary version="0.1">
     <Syllables>
+        <Syllable alias="あ">
+            <Phonemes>a-a-a</Phonemes>
+        </Syllable>
         <Syllable alias="ね">
             <Phonemes>n-e-e</Phonemes>
         </Syllable>
@@ -8,6 +11,16 @@
         </Syllable>
     </Syllables>
     <Fragments>
+        <Fragment phonemes="^/a-a" pitch="F4">
+            <FileName>_ああいあう.wav</FileName>
+            <StartTime>704</StartTime>
+            <Length>566</Length>
+            <FixedRange>
+                <Length>372</Length>
+                <Overlap>0</Overlap>
+                <Preceding>0</Preceding>
+            </FixedRange>
+        </Fragment>
         <Fragment phonemes="^/k-o" pitch="F4">
             <FileName>こ.wav</FileName>
             <StartTime>227</StartTime>
@@ -21,9 +34,9 @@
         <Fragment phonemes="-o/n-e" pitch="F4">
             <FileName>_おねぬにな.wav</FileName>
             <StartTime>1097</StartTime>
-            <Length>608</Length>
+            <Length>600</Length>
             <FixedRange>
-                <Length>450</Length>
+                <Length>500</Length>
                 <Overlap>100</Overlap>
                 <Preceding>300</Preceding>
             </FixedRange>
@@ -51,6 +64,3 @@
         </Fragment>
     </Fragments>
 </VoiceDictionary>
-
-
-

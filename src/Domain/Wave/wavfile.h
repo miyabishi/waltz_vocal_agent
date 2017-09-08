@@ -1,4 +1,4 @@
-#ifndef WAVFILE_H
+ #ifndef WAVFILE_H
 #define WAVFILE_H
 
 #include <QFile>

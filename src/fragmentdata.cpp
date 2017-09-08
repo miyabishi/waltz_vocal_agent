@@ -117,12 +117,12 @@ int FragmentData::sampleSize() const
 
 char* FragmentData::waveformRawData() const
 {
-    return mWaveform_->rawData().data();
+    return mWaveform_->rawData()->data();
 }
 
 int FragmentData::waveformRawDataSize() const
 {
-    return mWaveform_->rawData().size();
+    return mWaveform_->rawData()->size();
 }
 
 std::string FragmentData::comment() const

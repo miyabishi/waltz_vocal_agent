@@ -11,7 +11,7 @@ Waveform::Waveform()
 Waveform::Waveform(const QByteArray& aRawData,
                    const int   aSampleRate,
                    const int   aSampleSize)
- : mRawData_(aRawData)
+ : mRawData_(new QByteArray(aRawData))
  , mSampleRate_(aSampleRate)
  , mSampleSize_(aSampleSize)
 {
@@ -36,23 +36,26 @@ Waveform& Waveform::operator=(const Waveform& aOther)
 std::shared_ptr<Waveform> Waveform::trim(const int aStart,
                                          const int aLength)
 {
-    QBuffer buff(&mRawData_);
+    QBuffer buff(mRawData_.data());
     buff.open(QIODevice::ReadOnly);
     buff.seek(aStart);
+    int readSize = aLength;
+    if(aLength > (mRawData_->size() - aStart))
+    {
+        readSize = (mRawData_->size() - aStart - 1);
+    }
 
     std::shared_ptr<Waveform> waveform(
-                new Waveform(buff.read(aLength),
+                new Waveform(buff.read(readSize),
                              mSampleRate_,
                              mSampleSize_));
-
     return waveform;
 }
 
 QList<int> Waveform::waveformValues() const
 {
     QList<int> waveformValues;
-    QByteArray byteArray = mRawData_;
-    QBuffer buffer(&byteArray);
+    QBuffer buffer(mRawData_.data());
     buffer.open(QIODevice::ReadOnly);
     buffer.seek(0);
 
@@ -70,7 +73,7 @@ QList<int> Waveform::waveformValues() const
     return waveformValues;
 }
 
-QByteArray Waveform::rawData() const
+QSharedPointer<QByteArray> Waveform::rawData() const
 {
     return mRawData_;
 }

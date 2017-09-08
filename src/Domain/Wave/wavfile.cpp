@@ -109,10 +109,6 @@ void WavFile::establishFormat(const WavFileHeaderStructure& aHeader)
     mFileFormat_.setCodec("audio/pcm");
     mFileFormat_.setSampleRate(qFromLittleEndian<quint32>(aHeader.wave.sampleRate));
     mFileFormat_.setSampleSize(qFromLittleEndian<quint16>(aHeader.wave.bitsPerSample));
-    qDebug() << "BPS!!!!!!!!!!" << aHeader.wave.bitsPerSample;
-    qDebug() << "SampleRate" << aHeader.wave.sampleRate;
-    qDebug() << "SampleSize" << aHeader.wave.bitsPerSample;
-    qDebug() << "ByteRate" << aHeader.wave.byteRate;
 
     setSampleTypeToFormat(aHeader);
 }

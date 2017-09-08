@@ -4,6 +4,7 @@
 #include<memory>
 #include <QList>
 #include <QBitArray>
+#include <QSharedPointer>
 
 namespace waltz
 {
@@ -25,15 +26,14 @@ namespace waltz
                 std::shared_ptr<Waveform> trim(const int aStart,
                                                const int aLength);
                 QList<int> waveformValues() const;
-                QByteArray rawData() const;
+                QSharedPointer<QByteArray> rawData() const;
                 int sampleRate() const;
                 int sampleSize() const;
                 void setSampleRate(int aSampleRate);
                 void setSampleSize(int aSampleSize);
 
-
             private:
-                QByteArray mRawData_;
+                QSharedPointer<QByteArray> mRawData_;
                 int        mSampleRate_;
                 int        mSampleSize_;
             };
