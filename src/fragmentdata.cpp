@@ -1,4 +1,3 @@
-#include <QDebug>
 #include "fragmentdata.h"
 #include "length.h"
 #include "Domain/Wave/waveform.h"

@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <QDir>
 #include "src/Domain/Wave/wavfile.h"
 #include "fragment.h"

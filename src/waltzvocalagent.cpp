@@ -3,7 +3,6 @@
 #include "Domain/DictionaryComponent/voicedictionary.h"
 #include "Domain/VocalInformationComponent/vocalinformation.h"
 #include "Domain/ConfigurationParser/vocalinformationparser.h"
-#include <QDebug>
 
 using namespace waltz::agent;
 using namespace waltz::agent::ConfigurationParser;

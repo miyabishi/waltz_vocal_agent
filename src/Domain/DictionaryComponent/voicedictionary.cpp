@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <QString>
 #include "voicedictionary.h"
 #include "src/iphrase.h"

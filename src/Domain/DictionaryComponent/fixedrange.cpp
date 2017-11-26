@@ -1,5 +1,4 @@
 #include "fixedrange.h"
-#include <qdebug.h>
 
 using namespace waltz::agent::DictionaryComponent;
 

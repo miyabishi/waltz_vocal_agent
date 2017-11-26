@@ -1,4 +1,3 @@
-#include <QDebug>
 #include "fragments.h"
 #include "src/fragmentdata.h"
 #include "joinedphonemessentence.h"

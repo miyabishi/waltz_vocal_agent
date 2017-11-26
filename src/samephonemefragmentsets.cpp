@@ -1,4 +1,3 @@
-#include <QDebug>
 #include "Domain/DictionaryComponent/fragment.h"
 #include "samephonemefragmentsets.h"
 

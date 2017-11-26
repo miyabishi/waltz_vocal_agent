@@ -1,4 +1,3 @@
-#include <qdebug.h>
 #include "syllable.h"
 
 using namespace waltz::agent::DictionaryComponent;

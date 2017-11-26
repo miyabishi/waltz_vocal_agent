@@ -1,4 +1,3 @@
-#include <QDebug>
 #include "phonemessentence.h"
 
 using namespace waltz::agent::DictionaryComponent;
@@ -38,7 +37,6 @@ JoinedPhonemesSentence PhonemesSentence::join() const
         joinedString += phonemes.value() + PHONEMES_SEPARATOR;
     }
     joinedString += PHONEMES_END_POINT;
-    qDebug() << joinedString;
     return JoinedPhonemesSentence(joinedString);
 }
 

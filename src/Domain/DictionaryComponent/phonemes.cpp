@@ -1,5 +1,4 @@
 #include "phonemes.h"
-#include <qdebug.h>
 
 using namespace waltz::agent::DictionaryComponent;
 

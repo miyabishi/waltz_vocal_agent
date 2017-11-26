@@ -1,5 +1,4 @@
 #include "alias.h"
-#include <QDebug>
 using namespace waltz::agent::DictionaryComponent;
 
 
