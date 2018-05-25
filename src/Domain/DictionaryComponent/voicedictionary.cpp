@@ -68,3 +68,8 @@ waltz::agent::FragmentList VoiceDictionary::phonemesSentenceToFragmentList(const
     return mFragments_.phonemeSentenceToFragmentList(aPhonemesSentence);
 }
 
+std::vector<std::string> VoiceDictionary::correspondenceAliasVector() const
+{
+    return mSyllables_.correspondenceAliasVector();
+
+}

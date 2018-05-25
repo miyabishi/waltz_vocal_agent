@@ -27,6 +27,11 @@ void WaltzVocalAgent::loadVocal(const std::string& aFileName)
     mIsLibraryLoaded_ = true;
 }
 
+std::vector<std::string> WaltzVocalAgent::correspondenceAliasVector() const
+{
+    return mVoiceDictionary_->correspondenceAliasVector();
+}
+
 FragmentList WaltzVocalAgent::phraseToFragmentList(const IPhrase* aPhrase)
 {
     if (aPhrase == 0)

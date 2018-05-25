@@ -37,3 +37,8 @@ Phonemes Syllable::phonemes() const
 {
     return mPhonemes_;
 }
+
+Alias Syllable::alias() const
+{
+    return mAlias_;
+}

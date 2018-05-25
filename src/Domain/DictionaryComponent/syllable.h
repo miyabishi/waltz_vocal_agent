@@ -21,6 +21,7 @@ namespace waltz
                 Syllable& operator=(const Syllable& aOther);
                 bool aliasEquals(const Alias& aAlias) const;
                 Phonemes phonemes() const;
+                Alias alias() const;
 
             private:
                 Alias    mAlias_;

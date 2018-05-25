@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include <string>
 #include <QString>
 #include "src/fragmentlist.h"
 #include "syllables.h"
@@ -29,6 +30,7 @@ namespace waltz
             public:
                 waltz::agent::FragmentList phraseToFragmentList(const waltz::agent::IPhrase* aPhrase);
                 JoinedPhonemesSentence phraseToJoinedPhonemesSentence(const waltz::agent::IPhrase* aPhrase);
+                std::vector<std::string> correspondenceAliasVector() const;
 
             private:
                 PhonemesSentence aliasVectorToPhonemesSentence(std::vector<waltz::agent::IAlias*> aAliasVector);

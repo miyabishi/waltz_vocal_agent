@@ -28,3 +28,8 @@ bool Alias::operator!=(const Alias& aOther) const
 {
     return mValue_ != aOther.mValue_;
 }
+
+std::string Alias::toStdString() const
+{
+    return mValue_.toStdString();
+}

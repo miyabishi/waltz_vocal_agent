@@ -30,6 +30,7 @@ namespace waltz
             std::string characterDescription() const;
             std::string characterImageFilePath() const;
             std::string libraryName() const;
+            std::vector<std::string> correspondenceAliasVector() const;
             bool        isLibraryLoaded() const;
 
         private:

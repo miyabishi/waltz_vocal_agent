@@ -34,3 +34,13 @@ Syllable Syllables::find(const Alias& aAlias) const
     Q_ASSERT("Syllable Not Found");
     return Syllable();
 }
+
+std::vector<std::string> Syllables::correspondenceAliasVector() const
+{
+    std::vector<std::string> ret;
+    foreach (const Syllable& syllabe, mSylables_)
+    {
+        ret.push_back(syllabe.alias().toStdString());
+    }
+    return ret;
+}

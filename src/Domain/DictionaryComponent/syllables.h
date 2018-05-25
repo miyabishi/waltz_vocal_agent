@@ -21,6 +21,7 @@ namespace waltz
             public:
                 void append(const Syllable& aSyllable);
                 Syllable find(const Alias& aAlias) const;
+                std::vector<std::string> correspondenceAliasVector() const;
 
             private:
                 QList<Syllable> mSylables_;

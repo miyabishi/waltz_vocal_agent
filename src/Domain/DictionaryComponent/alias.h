@@ -17,6 +17,7 @@ namespace waltz
                 Alias& operator=(const Alias& aOther);
                 bool operator==(const Alias& aOther) const;
                 bool operator!=(const Alias& aOther) const;
+                std::string toStdString() const;
 
             private:
                 QString mValue_;
