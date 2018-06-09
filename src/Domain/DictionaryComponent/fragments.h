@@ -26,6 +26,8 @@ namespace waltz
                 waltz::agent::FragmentList phonemeSentenceToFragmentList(
                         const PhonemesSentence& aPhonemesSentnece) const;
 
+                waltz::agent::FragmentList toAllFragmentList() const;
+
             private:
                 waltz::agent::SamePhonemeFragmentSets assembleSamePhonemeFragmentSets(
                                         const JoinedPhonemesSentence& aJoinedPhonemesSentence,

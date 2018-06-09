@@ -43,6 +43,11 @@ waltz::agent::FragmentList VoiceDictionary::phraseToFragmentList(const waltz::ag
                 aliasVectorToPhonemesSentence(aPhrase->aliases()));
 }
 
+waltz::agent::FragmentList VoiceDictionary::allFragmentList() const
+{
+    return mFragments_.toAllFragmentList();
+}
+
 JoinedPhonemesSentence VoiceDictionary::phraseToJoinedPhonemesSentence(const waltz::agent::IPhrase *aPhrase)
 {
     if (aPhrase == 0)
@@ -71,5 +76,4 @@ waltz::agent::FragmentList VoiceDictionary::phonemesSentenceToFragmentList(const
 std::vector<std::string> VoiceDictionary::correspondenceAliasVector() const
 {
     return mSyllables_.correspondenceAliasVector();
-
 }

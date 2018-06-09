@@ -47,6 +47,18 @@ waltz::agent::FragmentList Fragments::phonemeSentenceToFragmentList(const Phonem
     return fragmentList;
 }
 
+waltz::agent::FragmentList Fragments::toAllFragmentList() const
+{
+    waltz::agent::FragmentList fragmentList;
+    foreach(const Fragment& fragment, mFragments_)
+    {
+        int dummy = 0;
+        fragmentList.appendSamePhonemeFragmentSets(
+                    assembleSamePhonemeFragmentSets(JoinedPhonemesSentence(fragment.phonemes().value()), dummy));
+    }
+    return fragmentList;
+}
+
 waltz::agent::SamePhonemeFragmentSets Fragments::assembleSamePhonemeFragmentSets(const JoinedPhonemesSentence& aJoinedPhonemesSentence,
                                                                                  int& aPhonemesSize) const
 {

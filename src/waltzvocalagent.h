@@ -25,6 +25,7 @@ namespace waltz
             WaltzVocalAgent();
             void loadVocal(const std::string& aFileName);
             FragmentList phraseToFragmentList(const IPhrase* aPhrase);
+            FragmentList allFragmentList() const;
             std::string phraseToPhonemesSentence(const IPhrase* aPhrase) const;
 
             std::string characterDescription() const;

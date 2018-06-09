@@ -29,6 +29,8 @@ namespace waltz
 
             public:
                 waltz::agent::FragmentList phraseToFragmentList(const waltz::agent::IPhrase* aPhrase);
+                waltz::agent::FragmentList allFragmentList() const;
+
                 JoinedPhonemesSentence phraseToJoinedPhonemesSentence(const waltz::agent::IPhrase* aPhrase);
                 std::vector<std::string> correspondenceAliasVector() const;
 
