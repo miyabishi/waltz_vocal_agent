@@ -1,3 +1,4 @@
+#include <QDebug>
 #include "fragments.h"
 #include "src/fragmentdata.h"
 #include "joinedphonemessentence.h"
@@ -49,6 +50,7 @@ waltz::agent::FragmentList Fragments::phonemeSentenceToFragmentList(const Phonem
 
 waltz::agent::FragmentList Fragments::toAllFragmentList() const
 {
+    qDebug() << Q_FUNC_INFO;
     waltz::agent::FragmentList fragmentList;
     foreach(const Fragment& fragment, mFragments_)
     {
